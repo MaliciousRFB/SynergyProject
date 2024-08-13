@@ -1,0 +1,29 @@
+<!doctype html>
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="grid text-center">
+    <div class="g-col-4 d-flex justify-content-evenly" style="margin-top: 6rem">
+            {% for item in life %}
+                <div style="width: 22rem" class="position-relative">
+                   {% if item.photos %}
+                       <img src="{{ item.photos.url }}" class="card-img-top"  alt="Photo">
+                   {% endif %}
+                  <div style="margin-top: 1rem; text-align: left">
+                      {% autoescape off %}
+                     <h5 class="card-title">{{ item.title }}</h5>
+                      <p class="card-text">{{ item.content | truncatewords:30 }}</p>
+                      <div class="position-absolute bottom-2">
+                      <a href="{{ item.get_absolute_url }}" style="text-decoration: none">
+                      <p style="font-size: 1.5rem">Explore</p>
+                      </a>
+                       </div>
+                      {% endautoescape %}
+                  </div>
+                </div>
+            {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

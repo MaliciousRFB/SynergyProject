@@ -1,0 +1,28 @@
+<!doctype html>
+{% extends 'base.html' %}
+
+{% block content %}
+<div style="max-width: 40rem; margin-left: 10rem; margin-top: 5rem">
+<div class="clearfix">
+    {% autoescape off %}
+      <h1>
+        {{ news_item.title }}
+      </h1>
+  <div>
+       {% if news_item.photo %}
+        <img src="{{ news_item.photo.url }}" class="card-img-top"  alt="Photo">
+        {% else %}
+        <h6>Photo issued</h6>
+        {% endif %}
+  </div>
+  <p style="padding-top: 1rem;">
+      <div style="font-size: 1.1rem; line-height: 2rem">
+            {{ news_item.content }}
+        </div>
+    {% endautoescape %}
+</div>
+
+</div>
+
+{% endblock %}
+

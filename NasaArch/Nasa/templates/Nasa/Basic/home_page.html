@@ -1,0 +1,33 @@
+<!doctype html>
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+    {% for item in news %}
+
+    <div style="width: 40rem; margin-left: 5rem; margin-top: 5rem;--bs-gap: .25rem 1rem;" class="grid text-center">
+        <div class="card text-bg-dark">
+
+           <div class="media-image">
+                {% if item.photo %}
+                   <img src="{{ item.photo.url }}" class="card-img-top"  alt="Photo" style="background: #000; opacity: 0.5;">
+                {% else %}
+                <h6>Photo issued</h6>
+                {% endif %}
+            </div>
+
+            <div class="media-body">
+                <div class="card-img-overlay">
+                    {% autoescape off %}
+                     <a href="{{ item.get_absolute_url }}" style="text-decoration: none;">
+                    <h5 class="card-title" style="color: white">{{ item.title }}</h5>
+                     </a>
+                    {% endautoescape %}
+                    <p class="card-text" style="color: white"><small>{{ item.date }}</small></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,56 @@
+<nav class="navbar navbar-dark bg-dark fixed-top" style="display: flex; margin-bottom: 5rem">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">Welcome to Nasa Archieve!</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+
+              <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+                <div class="offcanvas-header">
+                  <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel" style="font-size: 1.15rem">Explore</h5>
+                  <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body position-relative">
+                  <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="{% url 'Home' %}" style="font-size: 1.2rem">Home</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="font-size: 1.15rem">
+                        Menu
+                      </a>
+                      <ul class="dropdown-menu dropdown-menu-dark">
+                        <li><a class="dropdown-item" href="{% url 'Astro' %}" style="font-size: 1.15rem">Active astronauts</a></li>
+                        <li><a class="dropdown-item" href="{% url 'Vehicle' %}" style="font-size: 1.15rem">Spaceships and vehicle</a></li>
+                        <li><a class="dropdown-item" href="{% url 'Life' %}" style="font-size: 1.15rem">Life in Space</a></li>
+                      </ul>
+                    </li>
+
+<!--                     <li class="nav-item dropdown">-->
+<!--                      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">-->
+<!--                        Explore the Universe!-->
+<!--                      </a>-->
+<!--                      <ul class="dropdown-menu dropdown-menu-dark">-->
+<!--                          {% for item in planets %}-->
+<!--                          <li><a class="dropdown-item" href="">{{ item.space_object }}</a></li>-->
+<!--                            {% endfor %}-->
+<!--                      </ul>-->
+<!--                     </li>-->
+
+                    <li class="position-absolute bottom-0">
+                        {% if request.user.is_authenticated %}
+                        <span style="font-size: 1.5rem">Welcome, {{ user.username }}</span> | <a href="{% url 'Logout' %}" style="font-size: 1.5rem; text-decoration: none; color: white">Log Out</a>
+                        {% else %}
+                        <span><a href="{% url 'Register' %}" style="font-size: 1.5rem; text-decoration: none; color: white">Register |</a></span>
+                        <span><a href="{% url 'Login' %}" style="font-size: 1.5rem; text-decoration: none; color: white">Login</a></span>
+
+                    </li>
+
+                        {% endif %}
+                      </ul>
+
+                </div>
+              </div>
+            </div>
+</nav>

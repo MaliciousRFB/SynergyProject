@@ -1,0 +1,25 @@
+<!doctype html>
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div style="background-color: #f6f6f6; margin-top: 5rem;">
+    <div class="media" style="width: 40rem; margin-left: 5rem; padding-bottom: 2rem">
+        {% if live_item.photos %}
+        <img src="{{ live_item.photos.url }}" class="card-img-top"  alt="Photo">
+        {% else %}
+        <h6>Photo issued</h6>
+        {% endif %}
+  </div>
+
+  <div class="content" style="margin-left: 5rem; margin-right: 2rem">
+    {% autoescape off %}
+      <h2 style="margin-bottom: 1.5rem; ">{{ live_item.title }}</h2>
+      <div style="width: 55rem; font-size: 1.2rem; line-height: 2.5rem">
+        {{ live_item.content }}
+      </div>
+    {% endautoescape %}
+  </div>
+
+</div>
+{% endblock %}

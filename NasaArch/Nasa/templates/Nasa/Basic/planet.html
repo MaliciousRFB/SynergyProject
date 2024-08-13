@@ -1,0 +1,19 @@
+<!doctype html>
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="accordion" id="accordionExample">
+  <div class="accordion-item">
+      {% for item in planet %}
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          {{ item.space_object }}
+      </button>
+    </h2>
+    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,24 @@
+<!doctype html>
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+    {% for item in vehicle %}
+ <div style="width: 40rem; margin-left: 5rem; margin-top: 5rem;--bs-gap: .25rem 1rem;" class="grid text-center">
+        <div class="card mb-3">
+        {% if item.photo %}
+            <img src="{{ item.photo.url }}" class="card-img-top"  alt="Photo"  height="">
+        {% else %}
+            <h6>Photo issued</h6>
+         {% endif %}
+          <div class="card-body">
+              <a href="{{ item.get_absolute_url }}" style="text-decoration: none">
+                  <h5 class="card-title">{{ item.spaceship }}</h5>
+              </a>
+          </div>
+        </div>
+  </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

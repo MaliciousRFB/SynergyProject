@@ -1,0 +1,21 @@
+<!doctype html>
+{% extends 'base.html' %}
+
+{% block content %}
+<div style="margin-top: 5rem; width: 70rem; margin-left: 15rem">
+  {% for item in astro %}
+      <div class="row g-0" style="border-top: 1px solid #b9b9bb; padding: 2rem">
+            <div class="col-md-4 position-relative" style='width: 150px; '>
+                <img src="https://avatars.mds.yandex.net/i?id=8ef34a416cf9fe27775d2b448063da8e_l-5132099-images-thumbs&n=13" class="card-img-top"  alt="Photo"  style="padding-left: 4rem;">
+            </div>
+            <div class="col-md-4" style="margin-left: 30rem;">
+              <div class="card-body d-flex justify-content-between">
+              <h5 class="card-title" style="font-size: 1.5rem; padding-top: 3px">{{ item.astronaut }}</h5>
+              <a style="text-decoration: none;  font-size: 1.5rem;" href="{{ item.get_absolute_url }}"> Read</a>
+              </div>
+            </div>
+      </div>
+  {% endfor %}
+</div>
+{% endblock %}
+

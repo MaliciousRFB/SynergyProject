@@ -1,0 +1,24 @@
+<!doctype html>
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="d-flex justify-content-around" style="background-color: #f6f6f6; margin-top: 5rem;">
+  <div class="content" style="margin-left: 5rem; margin-right: 2rem">
+      <h3 style="padding-top: 4rem; margin-bottom: 2rem">Biography</h3>
+      <h1 style="margin-bottom: 1.5rem">{{ astro_item.astronaut }}</h1>
+    {% autoescape off %}
+      <div style="width: 55rem; font-size: 1.3rem; line-height: 2.5rem">
+        {{ astro_item.bio }}
+      </div>
+    {% endautoescape %}
+  </div>
+
+  <div class="media">
+        {% if astro_item.photo %}
+        <img src="{{ astro_item.photo.url }}" class="card-img-top"  alt="Photo">
+        {% else %}
+        <h6>Photo issued</h6>
+        {% endif %}
+  </div>
+</div>
+{% endblock %}
